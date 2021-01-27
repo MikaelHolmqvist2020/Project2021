@@ -25,7 +25,7 @@ export function SignInView(): JSX.Element {
         <input
           placeholder='password'
           onChange={event => setloginCredentials({ ...loginCredentials, password: event.target.value })} />
-        <button>Sign in</button>
+        <button onClick={() => signIn}>Sign in</button>
       </form>
     </div>
   )

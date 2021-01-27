@@ -1,0 +1,17 @@
+.profiling {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.profileDropdown {
+    display: none;
+    position: absolute;
+    background-color: rgb(23, 41, 41);
+}
+
+.profileDropdown span {
+    display: block;
+    cursor: pointer;
+    padding: 20px;
+    color: darkgrey;
+}

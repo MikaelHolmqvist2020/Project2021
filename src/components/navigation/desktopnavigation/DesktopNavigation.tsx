@@ -1,16 +1,17 @@
 import './DesktopNavigation.css'
-import Logtype from '../../../shared/images/Logotyp.svg'
-import { useHistory } from 'react-router-dom '
+import Logotype from '../../../shared/images/Logotyp.svg'
+import { useHistory } from 'react-router-dom'
 import RoutingPath from '../../../routes/RoutingPath'
 import { UserContext } from '../../../shared/provider/UserProvider'
+import { Profile } from '../../profile/Profile'
 
 export const DesktopNavigation = () => {
   const history = useHistory()
-  const [authUser, setAuthUser] = useContext(UserContext)
+  const [authUser, setAuthUser] = UserContext(UserContext)
   
   const displaySignInButtonOrUsernameDependingOnAuthentication = () => {
     return authUser
-      ? authUser.username
+      ? <Profile />
       : <span onClick={() => history.push(RoutingPath.signInView)}>Signin</span>
       
   }
@@ -24,8 +25,7 @@ export const DesktopNavigation = () => {
       <span onClick={() => history.push(RoutingPath.homeView)}>Brands</span>
       <span onClick={() => history.push(RoutingPath.homeView)}>News</span>
       <span onClick={() => history.push(RoutingPath.homeView)}>Guideline</span>
-      <span onClick={() => history.push(RoutingPath.signInView)}>Signin</span>
-      <span>{authUser?.username}</span>
+      {displaySignInButtonOrUsernameDependingOnAuthentication()}
     </div>
   )
 }
